@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); //middleware layers - logic or verfication - need to be signed in to view pages
     }
 
     /**

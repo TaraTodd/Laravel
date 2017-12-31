@@ -10,33 +10,62 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/blog', 'PostsController@index')->name('home');
 
-Route::get('/', function () {
-    $links = \App\Link::all();
+Route::get('/blog/create', 'PostsController@create');
 
-    return view('welcome', ['links' => $links]);
-});
+Route::post('/blogs', 'PostsController@store');
 
-Route::get('/submit', function () {
-    return view('submit');
-});
+Route::get('/posts/{post}', 'PostsController@show');
 
-Auth::routes();
+Route::post('/posts/{post}/comments', 'CommentsController@store');//for comments
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/register', 'RegistrationController@create');
+
+Route::post('/register', 'RegistrationController@store');
+
+Route::get('/login', 'SessionsController@create');
+
+Route::post('/login', 'SessionsController@store');
+
+Route::get('/logout', 'SessionsController@destroy');
+
+Route::get('/tasks', 'TasksController@index');//method @index
+
+Route::get('/tasks/{task}', 'TasksController@show');//method @index
+
+
+
+
+
+//Route::get('/', function () {
+    //$links = \App\Link::all();
+
+    //return view('welcome', ['links' => $links]);
+//});
+
+//Route::get('/submit', function () {
+   // return view('submit');
+//});
+
+
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 // With the form in place, we are ready to handle the POST data and validate data
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
-Route::post('/submit', function (Request $request) {
-    $data = $request->validate([ //validate() method to validate the form data
-        'title' => 'required|max:255',
-        'url' => 'required|url|max:255',
-        'description' => 'required|max:255',
-    ]);
+//Route::post('/submit', function (Request $request) {
+   // $data = $request->validate([ //validate() method to validate the form data
+        //'title' => 'required|max:255',
+        ////'url' => 'required|url|max:255',
+        //'description' => 'required|max:255',
+   // ]);
 
-    $link = tap(new App\Link($data))->save();
+    //$link = tap(new App\Link($data))->save();
 
-    return redirect('/');
-});
+    //return redirect('/');
+//});
