@@ -11,10 +11,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth'); //middleware layers - logic or verfication - need to be signed in to view pages
-    }
 
     /**
      * Show the application dashboard.

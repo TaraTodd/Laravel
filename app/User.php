@@ -16,7 +16,7 @@ class User extends Authenticatable
      
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'user_id'
     ];
 
     /**
@@ -43,4 +43,6 @@ class User extends Authenticatable
         $this->posts()->save($post);//automatically set user id
 
     }
+
+
 }

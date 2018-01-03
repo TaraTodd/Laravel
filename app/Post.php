@@ -24,11 +24,11 @@ class Post extends Model
 
 	}
 
-	public function addComment($body)
+	public function addComment() // $post->user
 
 	{
 
-		$this->comments()->create(compact('body'));
+		$this->comments()->create(compact('body','user_id'));
 
 	}
 

@@ -6,57 +6,70 @@ use Illuminate\Http\Request;
 
 class SessionsController extends Controller
 {
+   
+   public function __construct()
 
-	public function __construct() //only guests allowed to make it through that filter
+	{
 
-    {
-
-    	$this->middleware('guest', ['except' => 'destroy']);
-
-    }
-
-    public function create()
-
-    {
-
-    	return view('sessions.create');
-
-    }
-
-    public function store()
-
-    {
-    	//attempt to authenticate the user
-    	//if so, sign them in
-
-    	if (! auth()->attempt(request(['email', 'password']))) {
-
-    		return back()->withErrors([
-
-    			'message' => 'Please check your credentials and try again'
-
-    		]);
-
-    	}
+		
+		$this->middleware('guest', ['except' => 'destroy']);
+		
+	} 
 
 
-    	//if not redirect back
+   public function create()
 
-    	return redirect()->home();
+	{
+
+		
+		return view('sessions.create');
+		
+	} 
+
+
+	public function store()
+
+	{
+
+		
+		//attempt to authenticate user
+		// if so sign in
+		//if not redirect back
+
+
+		if (! auth()->attempt(request(['email', 'password']))) {
 
 
 
-    	//Redirect to homepage
+			return back()->withErrors([
 
-    }
 
-    public function destroy()
+				'message' => 'Please check your credentials and try again'
 
-    {
 
-    	auth()->logout();
+			]);
 
-    	return redirect()->home();
 
-    }
+
+		}
+
+
+		//redirect to home
+
+		return redirect()->home();
+		
+	} 
+
+	public function destroy()
+
+	{
+
+		
+		auth()->logout();
+
+
+		return redirect()->home();
+		
+	}
+
 }

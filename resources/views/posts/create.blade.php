@@ -23,7 +23,7 @@
 
     		<label for="body">Body</label>
 
-    		<textarea id="body" name="body" class="form-control">
+    		<textarea type="text" id="body" name="body" class="form-control">
     			
     		</textarea>
     		

@@ -6,13 +6,9 @@
 
           <nav class="nav">
 
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" href="{{ URL::to('/') }}">View all Blogs</a>
 
-            <a class="nav-link" href="#">New features</a>
-
-            <a class="nav-link" href="#">Press</a>
-
-            <a class="nav-link" href="#">New hires</a>
+            <a class="nav-link" href="{{ URL::to('blog/create') }}">Create a blog</a>
 
 
             @if (Auth::check())

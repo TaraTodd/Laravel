@@ -6,21 +6,24 @@
 
   <div class="col-sm-8 blog-main">
 
+  	<!-- will be used to show any messages -->
+	@if (Session::has('message'))
+
+    	<div class="alert alert-info">{{ Session::get('message') }}
+
+    	</div>
+	@endif
+
+	<!-- post start -->
+
     @foreach ($posts as $post)
 
       @include ('posts.post')
 
     @endforeach
 
+    @include('layouts.errors')
 
-          
-      <nav class="blog-pagination">
-        
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        
-        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-          
-      </nav>
 
   </div><!-- /.blog-main -->
 
