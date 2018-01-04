@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Http\Request;
 use App\Post;
 
 
@@ -84,15 +84,18 @@ class PostsController extends Controller
 
 		//and redirect maybe homepage
 
-		return redirect('/blog');
+		return redirect('/blog')
+			->with('success','Product created successfully');
 	}
 
 
-	public function destroy() //delete
+	public function destroy($id) //delete
 
 	{
 
-		return view('posts.index');
+	    Post::find($id)->delete();
+        return redirect('/blog')
+            ->with('success','Product deleted successfully');
 
 	}
 
@@ -102,11 +105,12 @@ class PostsController extends Controller
         return view('posts.edit', compact('post'));
     }
 
-	public function update()//update ^post^
+
+	public function update(Request $request, $id)//update ^post^
 
 	{
 
-		//validation
+	//validation
 
 		$this ->validate(request(), [
 
@@ -118,31 +122,15 @@ class PostsController extends Controller
 
 		]);
 
-
-		//create a new post using the request data
-
-		//save it to database
-
-		//other option
-		//auth()->user()->publish(
-
-			//new Post(request(['title', 'body']))
-
-		//);
-
-
-		Post::update([
-			'title' => request('title'),
-
-			'body' => request('body'),
-
-			'user_id' => auth()->id()
-		]);
-
-
-		//and redirect maybe homepage
-
-		return redirect('/blog');
+    //update post
+    
+    $post = POST::find($id);
+    $post->title = $request->input('title');
+    $post->body = $request->input('body');
+    $post->save();
+    
+    return redirect('/blog')
+    	->with('success','Product updated successfully');
 
 	}
 

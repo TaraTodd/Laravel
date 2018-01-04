@@ -5,9 +5,9 @@
 
 <div class="col-sm-8 blog-main">
 
-<form method="post">
+<form method="post" action="/posts/{{ $post->id }}">
     {{ csrf_field() }}
-    {{ method_field('PUT') }}
+    {{ method_field('PATCH') }}
 
     <div class="form-group">
 

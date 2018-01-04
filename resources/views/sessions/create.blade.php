@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('layouts.simple')
 
 
 @section('content')
@@ -33,6 +33,8 @@
 			<div class="form-group">
 
 				<button type="submit" class="btn btn-primary">sign in</button>
+
+				<a class="btn btn-small btn-success" href="{{ URL::to('register') }}">Register</a>
 
 				@include('layouts.errors')
 

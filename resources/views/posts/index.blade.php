@@ -6,13 +6,11 @@
 
   <div class="col-sm-8 blog-main">
 
-  	<!-- will be used to show any messages -->
-	@if (Session::has('message'))
-
-    	<div class="alert alert-info">{{ Session::get('message') }}
-
-    	</div>
-	@endif
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 
 	<!-- post start -->
 

@@ -10,15 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'PostsController@index')->name('home');
+Route::get('/blog', 'PostsController@index')->name('home');
 
 Route::get('/blog/create', 'PostsController@create');
 
 Route::post('/blogs', 'PostsController@store');
 
-Route::get('/blogs/{post}/edit', 'PostsController@edit');
+Route::get('/posts/{post}/edit', 'PostsController@edit');
 
-Route::post('/blogs/{post}', 'PostsController@update');
+Route::patch('/posts/{post}', 'PostsController@update');
 
 Route::get('/posts/{post}', 'PostsController@show');
 
@@ -32,7 +32,7 @@ Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@show');
 
 
-Route::get('/login', "SessionsController@create");
+Route::get('/', "SessionsController@create");
 
 Route::post('/login', "SessionsController@store");
 

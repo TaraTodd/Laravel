@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Illuminate\Http\Request;
 
 
 class Post extends Model
@@ -24,11 +25,14 @@ class Post extends Model
 
 	}
 
-	public function addComment() // $post->user
+	public function addComment($body) // $post->user
 
 	{
 
-		$this->comments()->create(compact('body','user_id'));
+		//$this->comments()->create(compact('body','user_id'));
+
+		$user_id = auth()->id();
+		$this->comments()->create(compact('body', 'user_id'));
 
 	}
 

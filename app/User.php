@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -43,6 +44,5 @@ class User extends Authenticatable
         $this->posts()->save($post);//automatically set user id
 
     }
-
 
 }
