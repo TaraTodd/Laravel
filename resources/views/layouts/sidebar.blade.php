@@ -29,9 +29,7 @@
       <li><a href="#">May 2013</a></li>
 
       <li><a href="#">April 2013</a></li>
-
+      
     </ol>
-
   </div>
-  
 </aside><!-- /.blog-sidebar -->

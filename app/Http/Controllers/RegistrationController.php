@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+//importing in
 use App\User;
+
+use App\Mail\Welcome;
 
 class RegistrationController extends Controller
 {
@@ -52,9 +55,14 @@ class RegistrationController extends Controller
 
 		auth()->login($user);
 
+		//sending email
+
+		\Mail::to($user)->send(new Welcome($user));
+
 		//redirect to home
 
-		return redirect()->home();
+		return redirect()->home()
+		->with('success','Thank you for Registering! An email has been sent to confirm your registration with us');
 
 	}
 
