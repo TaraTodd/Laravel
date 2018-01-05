@@ -8,24 +8,24 @@ class Comment extends Model
 
 {
 
-	protected $fillable = ['body', 'post_id'];
+	//protected $fillable = ['body', 'post_id'];
 
     // $comment->post; -- only for comments section
 
-    public function post()
+    //public function post()
 
-    {
+    //{
 
-    	return $this->belongsTo(Post::class);
+    	//return $this->belongsTo(Post::class);
 
-    }
+    //}
 
-    public function user() //$comment->user->name
+    //public function user() //$comment->user->name
 
-    {
+    //{
 
-    	return $this->belongsTo(User::class);
+    	//return $this->belongsTo(User::class);
 
-    }
+    //}
 
 }

@@ -9,13 +9,13 @@ class Post extends Model
 {
 
 	//for comments - can remove   
-	public function comments()
+	//public function comments()
 
-	{
+	//{
 
-		return $this->hasMany(Comment::class);
+		//return $this->hasMany(Comment::class);
 
-	}
+	//}
 
 	public function user() // $post->user
 
@@ -25,15 +25,15 @@ class Post extends Model
 
 	}
 
-	public function addComment($body) // $post->user
+	//public function addComment($body) // $post->user
 
-	{
+	//{
 
 		//$this->comments()->create(compact('body','user_id'));
 
-		$user_id = auth()->id();
-		$this->comments()->create(compact('body', 'user_id'));
+		//$user_id = auth()->id();
+		//$this->comments()->create(compact('body', 'user_id'));
 
-	}
+	//}
 
 }
