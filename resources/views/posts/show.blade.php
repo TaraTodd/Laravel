@@ -43,7 +43,7 @@
 
 	<hr>
 
-	<div class="card">
+	<!--<div class="card">
 
 		<div class="card-block">
 
@@ -71,7 +71,7 @@
 		</div>
 
 
-	</div>
+	</div>-->
 
 
 </div>
